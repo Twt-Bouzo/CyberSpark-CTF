@@ -1,0 +1,11 @@
+version: "3"
+services:
+  app:
+    build: .
+    container_name: bouarada
+    user: ctf
+    working_dir: /home/ctf
+    entrypoint: /bin/sh -c "./ynetd -p 2034 /home/ctf/launch.sh"
+    ports:
+      - "2034:2034"
+    read_only: true
