@@ -1,0 +1,11 @@
+version: "3"
+services:
+  app:
+    build: .
+    container_name: sahbi_baha
+    user: ctf
+    working_dir: /home/ctf
+    entrypoint: /bin/sh -c "./ynetd -p 2024 /home/ctf/launch.sh"
+    ports:
+      - "2024:2024"
+    read_only: true
