@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/50589d24-d4d5-4582-adbc-7610175296a2)
+
+
 🐛 Debugging with GDB – Secret Value Extraction
 
 When you connect, the binary starts running with gdb already attached on the server side.
