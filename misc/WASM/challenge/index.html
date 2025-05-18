@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAssembly  with Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .login-container, .square-container {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        #output, #loginMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebAssembly  </h1>
+    
+    <div class="login-container" id="loginContainer">
+        <p>Enter your credentials to access </p>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="handleLogin()">Login</button>
+        <div id="loginMessage"></div>
+    </div>
+
+    <script src="square.js"></script>
+    <script>
+        function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginMessage = document.getElementById('loginMessage');
+
+            if (username === 'admin' && password === 'password123') {
+                loginMessage.innerText = 'Login successful!';
+                loginMessage.style.color = 'green';
+                document.getElementById('loginContainer').classList.add('hidden');
+                document.getElementById('squareContainer').classList.remove('hidden');
+            } else {
+                loginMessage.innerText = 'Invalid username or password';
+                loginMessage.style.color = 'red';
+            }
+        }
+        // Ensure WASM module is loaded
+        Module.onRuntimeInitialized = () => {
+            console.log('WASM module loaded');
+        };
+    </script>
+</body>
+</html>
