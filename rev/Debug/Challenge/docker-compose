@@ -1,0 +1,11 @@
+version: "3"
+services:
+  app:
+    build: .
+    container_name: Debug
+    user: ctf
+    working_dir: /home/ctf
+    entrypoint: /bin/sh -c "./ynetd -p 2054 /home/ctf/launch.sh"
+    ports:
+      - "2054:2054"
+    read_only: true
